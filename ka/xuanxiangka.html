@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        #menu input {
+            width: 80px;
+            height: 30px;
+        }
+
+        .active {
+            background: red;
+        }
+
+        #con div {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="menu">
+            <input type="button"  value="体育" @click="tabId=0" class="{tabId=0}">
+            <input type="button" value="娱乐" @click="tabId=1" class="{tabId=1}">
+            <input type="button" value="新闻" @click="tabId=2" class="{tabId=2}">
+            <input type="button" value="科技" @click="tabId=3" class="{tabId=3}">
+        </div>
+        <div id="con">
+            <div v-show="tabId === 0" v-text="msg"></div>
+            <div v-show="tabId === 1" v-text="msg1"></div>
+            <div v-show="tabId === 2" v-text="msg2"></div>
+            <div v-show="tabId === 3" v-text="msg3"></div>
+        </div>
+    </div>
+
+</body>
+<script src="./vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#box',
+        data: {
+            tabId: 0,
+            msg: '体育',
+            msg1: '娱乐',
+            msg2: '新闻',
+            msg3: '科技'
+        }
+    })
+</script>
+
+</html>
