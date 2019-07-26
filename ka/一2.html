@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+    
+            header {
+                width: 500px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: white;
+                background-color: red;
+            }
+            footer {
+                width: 500px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: white;
+                background-color: #58bc58;
+            }
+        </style>
+</head>
+
+<body>
+    <div id="demo">
+        <a href="#" @click.prevent="flag=true">模块一</a>
+        <a href="#" @click.prevent="flag=false">模块二</a>
+        <header v-if="flag">模块一</header>
+        <footer v-else="flag">模块二</footer>
+
+    </div>
+
+</body>
+<script src="./vue.js"></script>
+<script>
+    Vue.component('mo1', {
+        template: '<header></header>'
+    });
+    Vue.component('mo2', {
+        template: '<footer></footer>'
+    });
+    var vm = new Vue({
+        el: '#demo',
+        data: {
+            flag: true
+        },
+        method: {}
+    });
+</script>
+
+</html>
